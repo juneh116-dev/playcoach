@@ -98,7 +98,7 @@
 <section class="ent" id="apply"><div class="in">
  <div class="pitch"><h2>지금 신청하고<br>무료 피드백 받기</h2><p>코치가 플레이 영상을 확인하고,<br>내 운동 목표에 맞춘 개인별 피드백을 보내드려요.</p><p class="note">현재 사전 수요 조사 중이며,<br>레슨 예약이나 결제는 진행되지 않습니다.</p></div>
  <form id="lead-form" action="result.html" method="get" autocomplete="off" novalidate>
-  <p class="form-title">무료 피드백 신청</p><p class="form-sub">신청 정보를 입력해 주세요.</p>
+  <p class="form-title" id="apply-title">무료 피드백 신청</p><p class="form-sub">신청 정보를 입력해 주세요.</p>
   <label class="field"><span>이름</span><input id="f-name" type="text" required maxlength="20" placeholder="홍길동"></label>
   <label class="field"><span>연락처</span><input id="f-contact" type="tel" required pattern="[0-9\- ]{9,14}" placeholder="010-0000-0000"></label>
   <label class="field"><span>종목</span><select id="f-select" required><option value="">종목을 선택해 주세요</option><option>러닝</option><option>야구</option><option>축구</option><option>테니스</option><option>골프</option><option>헬스</option><option>배구</option><option>배드민턴</option><option>기타</option></select></label>
@@ -111,13 +111,17 @@
  <div><b>PLAYCOACH</b>이 페이지는 서비스 수요 조사를 위한 시안입니다. 신청 정보는 저장되지 않으며, 실제 피드백 신청은 접수되지 않습니다.</div>
  <div><b>PLAYCOACH 소개</b><a href="#how">이용 방법</a></div><div><b>회원 안내</b><a href="#apply">무료 피드백 신청</a></div><div><b>고객 지원</b><a href="#" data-privacy-open>개인정보 안내</a></div>
 </div></footer>
-<div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
+<dialog class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
  <div class="modal-box"><span class="badge">개인정보 미수집 · 즉시 파기</span><h2 id="privacy-title">개인정보 처리 안내</h2>
   <ol><li><strong>입력하신 정보는 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li><li>입력값은 이 브라우저 화면에만 잠시 머물며 완료 버튼을 누르면 화면에서 지워집니다. 쿠키나 브라우저 저장소에도 남기지 않습니다.</li><li>페이지 제작자와 강사를 포함한 누구도 입력값을 볼 수 없습니다.</li></ol>
   <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
   <div class="modal-actions"><button type="button" class="cancel" id="privacy-cancel">닫기</button><button type="button" class="ok" id="privacy-ok" disabled>확인했습니다</button></div>
  </div>
-</div>
+</dialog>
+<dialog id="apply-dialog" aria-labelledby="apply-title">
+ <button type="button" class="apply-close" aria-label="신청 창 닫기">×</button>
+ <div id="apply-form-slot"></div>
+</dialog>
 <script src="assets/privacy.js"></script>
 </body>
 </html>

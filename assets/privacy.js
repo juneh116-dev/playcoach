@@ -12,6 +12,41 @@
   var ok = document.getElementById('privacy-ok');
   var cancel = document.getElementById('privacy-cancel');
   var mode = 'info';
+  var application = document.getElementById('apply-dialog');
+  var formHome = form && form.parentNode;
+  var formNext = form && form.nextSibling;
+  var applicationTrigger;
+
+  if (application && form) {
+    // 홈페이지의 링크와 버튼은 기본적으로 동일한 신청 팝업을 엽니다.
+    // 로고, 폼 내부 동작, 대화상자 내부 동작은 기존 기능을 유지합니다.
+    function isApplicationTrigger(trigger) {
+      return trigger && !trigger.matches('.logo') && !trigger.closest('form, dialog');
+    }
+    document.querySelectorAll('a, button').forEach(function (trigger) {
+      if (!isApplicationTrigger(trigger)) return;
+      trigger.setAttribute('aria-haspopup', 'dialog');
+      trigger.setAttribute('aria-controls', 'apply-dialog');
+    });
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest('a, button');
+      if (!isApplicationTrigger(trigger)) return;
+      e.preventDefault();
+      applicationTrigger = trigger;
+      document.getElementById('apply-form-slot').appendChild(form);
+      if (!application.open) application.showModal();
+      document.getElementById('f-name').focus();
+    });
+    application.querySelector('.apply-close').addEventListener('click', function () { application.close(); });
+    application.addEventListener('click', function (e) {
+      var box = application.getBoundingClientRect();
+      if (e.target === application && (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom)) application.close();
+    });
+    application.addEventListener('close', function () {
+      formHome.insertBefore(form, formNext);
+      if (applicationTrigger) applicationTrigger.focus({ preventScroll: true });
+    });
+  }
 
   function wipe() {
     if (!form) return;
@@ -28,19 +63,19 @@
     ok.disabled = true;
     ok.textContent = m === 'submit' ? '동의하고 완료하기' : '확인했습니다';
     modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
+    modal.showModal();
     agree.focus();
   }
 
   function close() {
     modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
+    modal.close();
   }
 
   agree.addEventListener('change', function () { ok.disabled = !agree.checked; });
   cancel.addEventListener('click', close);
   modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  modal.addEventListener('close', function () { modal.classList.remove('open'); });
 
   ok.addEventListener('click', function () {
     if (mode !== 'submit') { close(); return; }
@@ -50,7 +85,11 @@
   });
 
   document.querySelectorAll('[data-privacy-open]').forEach(function (b) {
-    b.addEventListener('click', function (e) { e.preventDefault(); open('info'); });
+    b.addEventListener('click', function (e) {
+      if (application && form && !b.closest('form, dialog')) return;
+      e.preventDefault();
+      open('info');
+    });
   });
 
   if (form) {
