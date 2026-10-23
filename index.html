@@ -3,108 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PLAYCOACH | 나에게 맞는 야구 코치 매칭</title>
-<meta name="description" content="플레이 영상과 내 정보를 바탕으로 내 문제를 제대로 아는 코치를 추천합니다.">
+<title>PLAYCOACH | 스포츠 코치 매칭</title>
+<meta name="description" content="플레이 영상과 운동 목표를 바탕으로 나에게 맞는 스포츠 코치를 찾아보세요.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PLAYCOACH | 나에게 맞는 야구 코치 매칭">
-<meta property="og:description" content="플레이 영상과 내 정보를 바탕으로 내 문제를 제대로 아는 코치를 추천합니다.">
+<meta property="og:title" content="PLAYCOACH | 스포츠 코치 매칭">
+<meta property="og:description" content="플레이 영상과 운동 목표를 바탕으로 나에게 맞는 스포츠 코치를 찾아보세요.">
 <meta property="og:image" content="https://YOUR-GITHUB-ID.github.io/assets/og.png">
 <meta property="og:url" content="https://YOUR-GITHUB-ID.github.io/">
 <link rel="canonical" href="https://YOUR-GITHUB-ID.github.io/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="assets/base.css">
 <style>
-:root{--nv:#071C33;--lime:#B8F23A;--blue:#65A2FF;--ink:#212224;--sub:#7B7E86;--line:#E4E5ED;--gray:#F2F3F7;--band:#FAFAFC}
-body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:14px;line-height:1.5}
-.in{max-width:1168px;margin:0 auto}
-.hd{height:76px;display:flex;align-items:center;gap:16px;padding:0 72px}
-.hd .logo{font-weight:800;font-size:20px;letter-spacing:-.04em;color:var(--nv)}
-.hd .tg{font-size:12px;color:var(--sub);display:flex;align-items:center;gap:6px}.hd .tg i{width:28px;height:16px;border-radius:9px;background:#ddd}
-.hd .r{margin-left:auto;display:flex;align-items:center;gap:22px;font-size:14px;font-weight:500}
-.hd .r .new{background:var(--blue);color:#fff;font-size:10px;border-radius:4px;padding:0 4px;margin-left:3px}
-.hd .r .join{background:var(--ink);color:#fff;border-radius:8px;height:36px;padding:0 14px;display:flex;align-items:center}
-/* 히어로 */
-.hero{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:center;padding:40px 0 0}
-.hero h1{font-size:36px;font-weight:700;line-height:1.35;margin:0;letter-spacing:-.03em}
-.srch{display:flex;align-items:center;justify-content:space-between;margin:28px 0 18px;max-width:560px;height:54px;border-radius:999px;border:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.08);padding:0 22px;color:#aaa;font-size:15px}
-.srch b{color:var(--ink);font-size:20px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}.chips a{background:var(--gray);border-radius:999px;padding:6px 14px;font-size:13px}
-.promo{height:316px;border-radius:12px;background:#D9C7FF;padding:30px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;box-shadow:12px 12px 0 #C9B4FA}
-.promo .ic{position:absolute;right:30px;top:30px;width:110px;height:110px;border-radius:20px;background:linear-gradient(135deg,#8B6CF0,#B9A3FF)}
-.promo b{font-size:20px;line-height:1.4}.promo small{color:#5b5470;margin-top:6px}
-.promo span{position:absolute;right:30px;bottom:30px;background:rgba(0,0,0,.35);color:#fff;border-radius:999px;padding:2px 10px;font-size:12px}
-.cats{display:grid;grid-template-columns:repeat(10,1fr);text-align:center;margin:56px auto 0;font-size:13px}
-.cats i{display:block;width:48px;height:48px;margin:0 auto 8px;border-radius:14px;font-style:normal;font-size:26px;line-height:48px}
-.cats small{display:inline-block;background:#FF5A5A;color:#fff;border-radius:999px;font-size:10px;padding:0 6px;margin-bottom:3px}
-/* 많이 찾아요 줄 */
-.band{background:var(--band);margin-top:60px;padding:80px 0}
-.lane{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-bottom:80px}.lane:last-child{margin-bottom:0}
-.lane h2{font-size:28px;font-weight:700;line-height:1.35;margin:0}
-.lane .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.svc .pill{display:flex;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:16px;margin-bottom:14px}
-.svc .pic{aspect-ratio:4/3;border-radius:8px;overflow:hidden}
-.svc .pr{display:inline-block;background:var(--nv);color:var(--lime);font-size:10px;font-weight:700;border-radius:3px;padding:0 5px;margin-top:10px}
-.svc b{display:block;font-size:14px;margin-top:4px}
-.svc .st{font-size:13px;color:var(--sub)}.svc .st:before{content:"★ ";color:#FFC400}
-.svc .price{display:block;font-weight:700;font-size:14px}
-.svc .who{display:flex;align-items:center;gap:6px;font-size:12px;margin-top:6px}.svc .who i{width:20px;height:20px;border-radius:50%;background:#ccc}
-/* 박스 3개 */
-.boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:96px 0 80px}
-.boxes div.b{border:1px solid var(--line);border-radius:12px;padding:24px 22px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.boxes h3{text-align:center;font-size:24px;font-weight:700;margin:0 0 20px}.boxes h3 em{font-style:normal;color:var(--blue)}
-.boxes .g{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:center;font-size:13px}
-.boxes .g .pic{height:100px;border-radius:6px;overflow:hidden;margin-bottom:6px}
-/* 평점 줄 */
-.ttl{text-align:center;font-size:36px;font-weight:700;line-height:1.35;margin:0 0 40px}
-.six{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;padding-bottom:120px}
-/* 진한 띠 */
-.dark{background:#303441;color:#fff;height:510px;display:flex;align-items:center}
-.dark small{font-size:16px;opacity:.8}.dark small em{font-style:normal;background:var(--lime);color:var(--ink);padding:0 6px;border-radius:3px}
-.dark h2{font-size:36px;font-weight:700;line-height:1.35;margin:12px 0 30px}
-.dark a{display:inline-flex;align-items:center;justify-content:center;width:240px;height:52px;border-radius:4px;background:var(--lime);color:var(--ink);font-size:16px;font-weight:500}
-/* 4단 아이콘 */
-.easy{padding:100px 0 80px;text-align:center}
-.easy .row{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
-.easy .ic{height:220px;display:grid;place-items:center}.easy .ic span{width:150px;height:150px;border-radius:40px;background:linear-gradient(135deg,#DDE9FF,var(--blue))}
-.easy .row div:nth-child(2) .ic span{background:linear-gradient(135deg,#E9FFC7,var(--lime))}
-.easy h3{font-size:24px;font-weight:700;margin:20px 0 8px}.easy p{color:var(--sub);margin:0;font-size:16px}
-.easy .more{display:inline-block;margin-top:50px;border:1px solid var(--line);border-radius:8px;width:340px;height:52px;line-height:52px;font-size:16px;font-weight:500}
-/* 고민 카드 */
-.rvs{background:var(--band);border-top:1px solid var(--line);padding:100px 0}
-.rvs .row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rvs .c{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-.rvs .c b{display:flex;align-items:center;gap:8px;font-size:20px}.rvs .c b i{width:36px;height:36px;border-radius:50%;background:#ddd}
-.rvs .c p{color:#444;font-size:15px;margin:14px 0 0}
-/* 활용 3카드 */
-.how{padding:100px 0 120px}
-.how .row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.how .pic{height:220px;border-radius:12px;display:grid;place-items:center;font-size:44px;color:var(--nv);font-weight:800}
-.how .row a:nth-child(1) .pic{background:#E2D4FF}.how .row a:nth-child(2) .pic{background:#FFD2B8}.how .row a:nth-child(3) .pic{background:#B5F2C9}
-.how h3{font-size:24px;font-weight:700;margin:18px 0 6px}.how p{color:var(--sub);margin:0 0 14px;font-size:15px}
-.how u{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:13px;text-decoration:none}
-/* FAQ + 신청 = 파란 기업 띠 자리 */
-.ent{background:linear-gradient(90deg,#2F6FD6,#65A2FF);color:#fff;padding:70px 0}
-.ent .in{display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:start}
-.ent h2{font-size:36px;font-weight:700;line-height:1.35;margin:0 0 20px}
-.ent li{list-style:none;font-size:18px;font-weight:700;margin-bottom:10px}.ent li:before{content:"● ";color:var(--lime);font-size:12px}
-.ent ul{padding:0;margin:0 0 24px}
-.ent dl{margin:0}.ent dt{font-weight:700;margin-top:12px}.ent dd{margin:2px 0 0;opacity:.85}
-.ent form{background:#fff;color:var(--ink);border-radius:12px;padding:26px}
-.field{display:block;margin-bottom:12px}
-.field span{display:block;font-weight:600;margin-bottom:6px;font-size:13px}
-.field input,.field select{width:100%;height:48px;border:1px solid var(--line);border-radius:8px;padding:0 14px;font:inherit}
-.ent .safe-note{margin:14px 0}
-.submit{width:100%;height:52px;border:0;border-radius:6px;background:var(--nv);color:var(--lime);font-size:16px;font-weight:700}
-.ft{padding:60px 0 40px;font-size:13px;color:var(--sub)}
-.ft .in{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px}
-.ft b{display:block;color:var(--ink);font-size:16px;margin-bottom:12px}.ft a{display:block;margin-bottom:6px}
-@media (max-width:1200px){.in{padding:0 20px}.hd{padding:0 20px}}
-@media (max-width:860px){
-  .hd .r a:not(.join){display:none}.hero{grid-template-columns:1fr}.hero h1{font-size:26px}.promo{height:200px}
-  .cats{grid-template-columns:repeat(5,1fr);row-gap:16px}.lane{grid-template-columns:1fr}.lane .row{grid-template-columns:repeat(2,1fr)}
-  .boxes,.easy .row,.rvs .row,.how .row{grid-template-columns:1fr}.six{grid-template-columns:repeat(2,1fr)}.ttl,.dark h2,.ent h2{font-size:26px}
-  .ent .in{grid-template-columns:1fr;gap:30px}.ft .in{grid-template-columns:1fr 1fr}.easy .more{width:100%}
-}
+:root{--navy:#071C33;--lime:#B8F23A;--blue:#4887E9;--ink:#212936;--sub:#7B8492;--line:#E1E6EF;--gray:#F3F5F8;--band:#F8F9FB}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:14px;line-height:1.55}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.in{width:min(1168px,calc(100% - 48px));margin-inline:auto}
+.hd{height:64px;display:flex;align-items:center;gap:16px;padding:0 max(24px,calc((100vw - 1260px)/2));border-bottom:1px solid #f4f5f7}.hd .logo{font-weight:800;font-size:18px;letter-spacing:-.04em;color:var(--navy)}.hd .tg{font-size:11px;color:var(--sub);display:flex;align-items:center;gap:6px}.hd .tg i{width:24px;height:14px;border-radius:9px;background:#ddd}.hd .r{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:12px;font-weight:500}.hd .r .new{background:var(--blue);color:#fff;font-size:9px;border-radius:4px;padding:0 4px;margin-left:3px}.hd .r .join{background:var(--ink);color:#fff;border-radius:6px;padding:8px 12px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:34px;align-items:center;padding-top:30px}.hero-copy{padding:4px 0}.hero h1{font-size:clamp(25px,2.5vw,32px);font-weight:750;line-height:1.34;margin:0;letter-spacing:-.04em}.srch{display:flex;align-items:center;justify-content:space-between;margin:18px 0 12px;max-width:560px;height:44px;border-radius:999px;border:1.5px solid #B8C2D1;box-shadow:0 2px 8px rgba(20,40,70,.07);padding:0 16px;color:#9099A8;font-size:12px}.srch b{color:var(--ink);font-size:18px}.chips{display:flex;gap:7px;flex-wrap:wrap}.chips a{background:var(--gray);border-radius:999px;padding:5px 11px;font-size:11px;color:#505968}.promo{min-height:194px;border-radius:10px;background:var(--blue);padding:22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:relative;color:white;overflow:hidden}.promo:after{content:"";position:absolute;right:20px;top:20px;width:78px;height:78px;border-radius:15px;background:rgba(255,255,255,.28)}.promo b{position:relative;z-index:1;font-size:20px;line-height:1.35;max-width:255px}.promo small{position:relative;z-index:1;color:rgba(255,255,255,.91);font-size:11px;line-height:1.5;margin-top:8px;max-width:290px}.promo .notice{font-size:10px;opacity:.9;margin-top:6px}.promo .promo-cta{display:inline-flex;margin-top:12px;background:var(--lime);color:var(--navy);border-radius:5px;padding:8px 18px;font-size:11px;font-weight:800;position:relative;z-index:1}
+.cats{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));text-align:center;margin:26px auto 32px;font-size:11px}.cat{display:block;position:relative;padding:0 2px}.cat-emoji{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 5px;border-radius:13px;background:var(--cat-bg);font-size:27px;line-height:1}.cat-name{white-space:nowrap}.cats .popular{position:absolute;left:50%;top:-8px;transform:translateX(-50%);background:#FF5A5A;color:#fff;border-radius:999px;font-size:9px;padding:0 6px;line-height:15px;z-index:1}
+.popular-sports{background:var(--band);padding:28px 0 34px}.sport-section+.sport-section{margin-top:26px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.section-title h2{font-size:19px;line-height:1.3;margin:0;letter-spacing:-.03em}.section-title a{font-size:11px;color:var(--sub)}.coach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.coach-card{min-width:0;border:1px solid var(--line);border-radius:9px;background:#fff;padding:10px}.coach-visual{height:100px;border-radius:6px;background:linear-gradient(135deg,#E8EBEF,#D9DEE4);display:grid;place-items:center;color:#7b8492;font-size:11px}.coach-card h3{font-size:12px;margin:8px 0 2px}.coach-card p{font-size:11px;line-height:1.45;color:var(--sub);margin:0}.sport-tag{display:inline-block;margin-top:6px;border-radius:999px;background:#EEF5FF;color:#4C76B8;padding:2px 8px;font-size:10px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:48px 0 34px}.feature{border:1px solid var(--line);border-radius:10px;padding:18px}.feature h2{font-size:17px;margin:0 0 10px;color:var(--blue)}.feature-tiles{display:grid;grid-template-columns:1fr 1fr;gap:7px}.feature-tiles span{height:48px;border-radius:5px;background:#E7E9EC}.feature p{font-size:11px;color:var(--sub);margin:10px 0 0}.concerns{padding:8px 0 40px}.concerns h2{text-align:center;font-size:20px;margin:0 0 14px}.concern-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.concern{border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;min-height:90px;background:#fff}.concern:before{content:"";display:block;width:48px;height:38px;border-radius:5px;background:#E7E9EC;margin-bottom:7px}
+.dark{background:#202B3D;color:#fff;padding:42px 0;text-align:center}.dark h2{font-size:24px;line-height:1.35;margin:0 0 14px}.dark a{display:inline-flex;align-items:center;justify-content:center;min-width:150px;height:38px;border-radius:4px;background:var(--lime);color:var(--navy);font-size:12px;font-weight:700}
+.easy{padding:38px 0 40px;text-align:center}.easy h2{font-size:20px;margin:0 0 22px}.easy .row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.step .ic{width:78px;height:78px;border-radius:18px;display:grid;place-items:center;margin:0 auto 10px;font-size:32px}.step:nth-child(1) .ic{background:#CFE1FF}.step:nth-child(2) .ic{background:#D8F8A6}.step:nth-child(3) .ic{background:#FFD5C4}.step h3{font-size:13px;margin:0 0 3px}.step p{font-size:11px;color:var(--sub);margin:0}.easy .more{display:inline-block;margin-top:20px;border:1px solid var(--line);border-radius:6px;padding:7px 24px;font-size:11px}
+.rvs{background:var(--band);padding:28px 0}.rvs h2{text-align:center;font-size:18px;margin:0 0 14px}.rvs .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.rvs .c{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px}.rvs .c b{display:flex;align-items:center;gap:8px;font-size:12px}.rvs .c b i{width:25px;height:25px;border-radius:50%;background:#E5E8EC}.rvs .c p{color:var(--sub);font-size:10px;margin:7px 0 0}
+.ent{background:var(--blue);color:#fff;padding:26px 0}.ent .in{display:grid;grid-template-columns:1fr 430px;gap:38px;align-items:center}.ent h2{font-size:24px;line-height:1.28;margin:0 0 10px}.ent .pitch{max-width:430px}.ent .pitch p{font-size:12px;margin:0 0 8px}.ent .pitch .note{font-size:10px;opacity:.9}.ent form{background:#fff;color:var(--ink);border-radius:9px;padding:16px 18px;box-shadow:0 3px 16px rgba(0,0,0,.08)}.form-title{font-size:15px;font-weight:750;margin:0 0 2px}.form-sub{font-size:10px;color:var(--sub);margin:0 0 10px}.field{display:block;margin-bottom:8px}.field span{display:block;font-weight:600;margin-bottom:4px;font-size:11px}.field input,.field select{width:100%;height:35px;border:1px solid var(--line);border-radius:6px;padding:0 10px;background:#fff;color:var(--ink);font:inherit;font-size:11px}.field input:focus,.field select:focus{outline:2px solid #9ABDF2;outline-offset:1px}.safe-note{display:flex;gap:7px;background:#F3F3F1;border-radius:6px;padding:8px;font-size:9px;line-height:1.45;color:#686868;margin:9px 0}.safe-note button{display:block;padding:0;border:0;background:none;color:inherit;text-decoration:underline;cursor:pointer;font-size:inherit}.submit{width:100%;height:36px;border:0;border-radius:5px;background:var(--navy);color:var(--lime);font-size:12px;font-weight:750;cursor:pointer}.ft{padding:26px 0 24px;font-size:10px;color:var(--sub)}.ft .in{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:20px}.ft b{display:block;color:var(--ink);font-size:12px;margin-bottom:7px}.ft a{display:block;margin-bottom:4px}
+@media(max-width:900px){.in{width:min(100% - 36px,680px)}.hd{padding:0 18px}.hd .r{gap:12px}.hero{grid-template-columns:minmax(0,1fr) 360px;gap:20px}.promo{min-height:190px}.coach-grid{grid-template-columns:repeat(2,1fr)}.coach-visual{height:110px}.concern-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.hd{height:56px}.hd .tg,.hd .r a:not(.join){display:none}.hero{grid-template-columns:1fr;gap:18px;padding-top:24px}.hero h1{font-size:26px}.srch{height:42px;margin-top:14px}.promo{min-height:178px}.promo b{font-size:19px}.cats{grid-template-columns:repeat(5,1fr);row-gap:18px;margin-top:22px}.cat-emoji{width:44px;height:44px;font-size:25px}.popular-sports{padding:24px 0}.section-title h2{font-size:17px}.coach-grid{gap:8px}.coach-card{padding:8px}.coach-visual{height:82px}.features{grid-template-columns:1fr;padding:30px 0 24px}.feature{padding:14px}.feature-tiles span{height:42px}.concern-grid{grid-template-columns:repeat(2,1fr)}.concerns{padding-bottom:26px}.dark{padding:32px 0}.dark h2{font-size:21px}.easy{padding:30px 0}.easy .row{gap:12px}.step .ic{width:58px;height:58px;font-size:25px;border-radius:14px}.step h3{font-size:11px}.step p{font-size:9px}.easy .more{margin-top:16px}.rvs .row{grid-template-columns:1fr}.ent{padding:24px 0}.ent .in{grid-template-columns:1fr;gap:18px}.ent h2{font-size:22px}.ent form{padding:15px}.ft .in{grid-template-columns:1fr 1fr}.ft .in>div:first-child{grid-column:1/-1}}
 </style>
 <!-- GA4 (Day 34에 여기에 붙이기) -->
 <!-- Meta Pixel (Day 35에 여기에 붙이기) -->
@@ -113,79 +35,89 @@ body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var
 </head>
 <body>
 <header class="hd"><a class="logo" href="./">playcoach</a><span class="tg">코치 모드 <i></i></span>
-  <div class="r"><a href="#how">추천 방식 보기<span class="new">NEW</span></a><a href="#how">코치 등록</a><a href="#" data-privacy-open>개인정보 안내</a><a class="join" href="#apply" id="cta-top">사전 가입</a></div></header>
-
+  <nav class="r" aria-label="주요 메뉴"><a href="#how">이용 방법</a><a href="#apply">자주 묻는 질문</a><a href="#apply" data-privacy-open>개인정보 안내</a><a class="join" href="#apply" id="cta-top">사전 가입</a></nav>
+</header>
 <main>
 <section class="in hero">
-  <div><h1>레슨이 필요한 순간,<br>딱 맞는 코치를 찾아보세요</h1>
-    <div class="srch">어떤 부분을 고치고 싶으세요? (예: 타격 밸런스)<b>⌕</b></div>
+  <div class="hero-copy"><h1>레슨이 필요한 순간,<br>딱 맞는 코치를 찾아보세요</h1>
+    <div class="srch" role="search"><span>어떤 부분을 고치고 싶으세요? (예: 타격 밸런스)</span><b aria-hidden="true">⌕</b></div>
     <div class="chips"><a href="#apply">타격 폼</a><a href="#apply">투구 밸런스</a><a href="#apply">수비 풋워크</a><a href="#apply">사회인 야구</a><a href="#apply">입문</a></div></div>
-  <a class="promo" href="#apply" id="cta-main"><span class="ic"></span><b>플레이 영상 올리고<br>맞는 코치 추천받기</b><small>스포츠 레슨 코치 매칭 · 야구부터</small><span>1 / 3</span></a>
+  <a class="promo" href="#apply" id="cta-main"><b>지금 신청하고<br>무료 피드백 받기</b><small>코치가 플레이 영상을 확인하고,<br>내 운동 목표에 맞춘 개인별 피드백을 보내드려요.</small><small class="notice">현재 사전 수요 조사 중이며,<br>레슨 예약이나 결제는 진행되지 않습니다.</small><span class="promo-cta">무료 피드백 신청 →</span></a>
 </section>
-<div class="in cats"><a href="#apply"><small>인기</small><i style="background:#EEF4FF">⚾</i>투수</a><a href="#apply"><small>인기</small><i style="background:#F5FFE6">🧢</i>타자</a><a href="#apply"><i style="background:#FFF1EA">🧤</i>포수</a><a href="#apply"><i style="background:#F3EEFF">🏃</i>내야</a><a href="#apply"><i style="background:#EEF4FF">🎯</i>외야</a><a href="#apply"><i style="background:#F5FFE6">💪</i>체력</a><a href="#apply"><i style="background:#FFF1EA">🌱</i>입문</a><a href="#apply"><i style="background:#F3EEFF">🎥</i>영상 분석</a><a href="#apply"><i style="background:#EEF4FF">📋</i>포지션별</a><a href="#apply"><i style="background:#F5FFE6">⋯</i>전체보기</a></div>
-
-<section class="band">
-  <div class="in lane"><h2>타자님이<br>많이 찾아요</h2><div class="row"><div><span class="svc"><span class="pill">타격 폼<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>타격 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>스윙 궤도 교정 전문 · 타격 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">스윙 궤도<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>투구 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>투구 밸런스·제구 · 투구 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">선구안<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>수비 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>내야 풋워크 · 수비 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">밸런스<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>입문 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>사회인 야구 입문 · 입문 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div></div></div>
-  <div class="in lane"><h2>투수님이<br>많이 찾아요</h2><div class="row"><div><span class="svc"><span class="pill">투구 밸런스<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>타격 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>스윙 궤도 교정 전문 · 타격 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">제구<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>투구 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>투구 밸런스·제구 · 투구 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">구속<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>수비 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>내야 풋워크 · 수비 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">멘탈<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>입문 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>사회인 야구 입문 · 입문 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div></div></div>
-  <div class="in lane"><h2>입문자들이<br>많이 찾아요</h2><div class="row"><div><span class="svc"><span class="pill">캐치볼<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>타격 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>스윙 궤도 교정 전문 · 타격 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">수비 풋워크<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>투구 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>투구 밸런스·제구 · 투구 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">규칙<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>수비 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>내야 풋워크 · 수비 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div><div><span class="svc"><span class="pill">장비<span>+</span></span></span><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>입문 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>사회인 야구 입문 · 입문 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div></div></div>
+<nav class="in cats" aria-label="종목별 코치 찾기">
+  <a class="cat" href="#running" style="--cat-bg:#EEF4FF"><small class="popular">인기</small><span class="cat-emoji">🏃</span><span class="cat-name">러닝</span></a>
+  <a class="cat" href="#baseball" style="--cat-bg:#F5FFE6"><small class="popular">인기</small><span class="cat-emoji">⚾</span><span class="cat-name">야구</span></a>
+  <a class="cat" href="#soccer" style="--cat-bg:#F1F7E9"><span class="cat-emoji">⚽</span><span class="cat-name">축구</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#FFF1EA"><span class="cat-emoji">🎾</span><span class="cat-name">테니스</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#F5F0E4"><span class="cat-emoji">⛳</span><span class="cat-name">골프</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#F3EEFF"><span class="cat-emoji">🏋️</span><span class="cat-name">헬스</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#EEF4FF"><span class="cat-emoji">🏐</span><span class="cat-name">배구</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#F5FFE6"><span class="cat-emoji">🏸</span><span class="cat-name">배드민턴</span></a>
+  <a class="cat" href="#how" style="--cat-bg:#FFF1EA"><span class="cat-emoji">🎥</span><span class="cat-name">영상 분석</span></a>
+  <a class="cat" href="#apply" style="--cat-bg:#F3F4F6"><span class="cat-emoji">⋯</span><span class="cat-name">전체보기</span></a>
+</nav>
+<section class="popular-sports" aria-label="인기 스포츠 코치">
+ <div class="in">
+  <section class="sport-section" id="running"><div class="section-title"><h2>러닝 인기 코치</h2><a href="#apply">전체 보기 ›</a></div><div class="coach-grid">
+   <article class="coach-card"><div class="coach-visual">러닝 코치 이미지</div><h3>러닝 자세 교정</h3><p>러닝 폼과 페이스 관리</p><span class="sport-tag">러닝</span></article>
+   <article class="coach-card"><div class="coach-visual">러닝 코치 이미지</div><h3>부상 예방 러닝</h3><p>몸에 맞는 훈련 계획</p><span class="sport-tag">러닝</span></article>
+   <article class="coach-card"><div class="coach-visual">러닝 코치 이미지</div><h3>기록 향상 훈련</h3><p>목표에 맞춘 페이스 조절</p><span class="sport-tag">러닝</span></article>
+   <article class="coach-card"><div class="coach-visual">러닝 코치 이미지</div><h3>러닝 시작하기</h3><p>기초 체력과 주법 코칭</p><span class="sport-tag">러닝</span></article>
+  </div></section>
+  <section class="sport-section" id="baseball"><div class="section-title"><h2>야구 인기 코치</h2><a href="#apply">전체 보기 ›</a></div><div class="coach-grid">
+   <article class="coach-card"><div class="coach-visual">야구 코치 이미지</div><h3>타격 폼 교정</h3><p>스윙 궤도와 타이밍 점검</p><span class="sport-tag">야구</span></article>
+   <article class="coach-card"><div class="coach-visual">야구 코치 이미지</div><h3>투구 밸런스</h3><p>투구 동작과 제구 훈련</p><span class="sport-tag">야구</span></article>
+   <article class="coach-card"><div class="coach-visual">야구 코치 이미지</div><h3>수비 풋워크</h3><p>기본 자세와 움직임 훈련</p><span class="sport-tag">야구</span></article>
+   <article class="coach-card"><div class="coach-visual">야구 코치 이미지</div><h3>야구 입문 코칭</h3><p>기본기부터 차근차근</p><span class="sport-tag">야구</span></article>
+  </div></section>
+  <section class="sport-section" id="soccer"><div class="section-title"><h2>축구 인기 코치</h2><a href="#apply">전체 보기 ›</a></div><div class="coach-grid">
+   <article class="coach-card"><div class="coach-visual">축구 코치 이미지</div><h3>기본기 향상</h3><p>볼 컨트롤과 패스 훈련</p><span class="sport-tag">축구</span></article>
+   <article class="coach-card"><div class="coach-visual">축구 코치 이미지</div><h3>드리블 코칭</h3><p>방향 전환과 볼 다루기</p><span class="sport-tag">축구</span></article>
+   <article class="coach-card"><div class="coach-visual">축구 코치 이미지</div><h3>슈팅 자세 교정</h3><p>정확도를 높이는 동작 훈련</p><span class="sport-tag">축구</span></article>
+   <article class="coach-card"><div class="coach-visual">축구 코치 이미지</div><h3>경기 체력 훈련</h3><p>목표에 맞춘 체력 관리</p><span class="sport-tag">축구</span></article>
+  </div></section>
+ </div>
 </section>
-
-<section class="in boxes">
-<div class="b"><h3><em>플레이 영상 분석</em>으로 찾아요</h3><div class="g"><div><div class="pic"><div class="ph "><span></span></div></div>외야</div><div><div class="pic"><div class="ph "><span></span></div></div>체력</div><div><div class="pic"><div class="ph "><span></span></div></div>입문</div><div><div class="pic"><div class="ph "><span></span></div></div>영상 분석</div></div><p style="text-align:center;color:var(--sub);margin:14px 0 0">스윙·투구 영상을 올리면 고치고 싶은 포인트를 먼저 정리합니다.</p></div><div class="b"><h3><em>문제 기반 추천</em>으로 찾아요</h3><div class="g"><div><div class="pic"><div class="ph "><span></span></div></div>외야</div><div><div class="pic"><div class="ph "><span></span></div></div>체력</div><div><div class="pic"><div class="ph "><span></span></div></div>입문</div><div><div class="pic"><div class="ph "><span></span></div></div>영상 분석</div></div><p style="text-align:center;color:var(--sub);margin:14px 0 0">경력 순이 아니라 내 문제를 잘 다루는 코치 순으로 추천합니다.</p></div><div class="b"><h3><em>첫 레슨 전 상담</em>으로 찾아요</h3><div class="g"><div><div class="pic"><div class="ph "><span></span></div></div>외야</div><div><div class="pic"><div class="ph "><span></span></div></div>체력</div><div><div class="pic"><div class="ph "><span></span></div></div>입문</div><div><div class="pic"><div class="ph "><span></span></div></div>영상 분석</div></div><p style="text-align:center;color:var(--sub);margin:14px 0 0">레슨 전 짧은 상담으로 방향이 맞는지 먼저 확인합니다.</p></div></section>
-
-<h2 class="ttl">이런 고민에 많이 찾아요</h2>
-<div class="in six"><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>타격 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>스윙 궤도 교정 전문 · 타격 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>투구 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>투구 밸런스·제구 · 투구 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>수비 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>내야 풋워크 · 수비 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>입문 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>사회인 야구 입문 · 입문 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>타격 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>스윙 궤도 교정 전문 · 타격 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a><a class="svc" href="#apply"><div class="pic"><div class="ph "><span>투구 · <span class="todo">지역</span> 레슨 사진</span></div></div><span class="pr">COACH</span><b>투구 밸런스·제구 · 투구 · <span class="todo">지역</span></b><span class="st"><span class="todo">평점 (리뷰 수)</span></span><span class="price"><span class="todo">1회 레슨비</span></span><span class="who"><i></i><span class="todo">코치 이름</span> 코치</span></a></div>
-
-<section class="dark"><div class="in"><small>지금도 <em><span class="todo">n</span>명</em>이 코치를 찾고 있어요</small><h2>내 문제를 아는 코치와<br>다음 시즌을 준비하세요</h2><a href="#apply">사전 가입 신청</a></div></section>
-
-<section class="in easy" id="how"><h2 class="ttl">3단계로 코치 찾기</h2>
-  <div class="row"><div><div class="ic"><span></span></div><h3>정보·영상 올리기</h3><p>포지션, 목표, 플레이 영상을 올립니다.</p></div><div><div class="ic"><span></span></div><h3>코치 추천</h3><p>내 문제에 맞는 코치 3명을 추천받습니다.</p></div><div><div class="ic"><span></span></div><h3>상담 후 레슨</h3><p>상담으로 확인한 뒤 레슨을 시작합니다.</p></div><div><div class="ic"><span style="background:linear-gradient(135deg,#FFE3D3,#FF9A6A)"></span></div><h3>레슨 기록</h3><p><span class="todo">레슨 후 기록 기능 설명</span></p></div></div>
-  <a class="more" href="#apply">추천 방식 보기</a>
+<section class="in features" aria-label="PLAYCOACH 이용 장점">
+ <article class="feature"><h2>플레이 영상 분석</h2><div class="feature-tiles"><span></span><span></span><span></span><span></span></div><p>플레이 영상을 코치가 확인하고 개선이 필요한 포인트를 안내합니다.</p></article>
+ <article class="feature"><h2>문제 기반 추천</h2><div class="feature-tiles"><span></span><span></span><span></span><span></span></div><p>운동 목표와 고민에 맞는 코치를 찾아볼 수 있습니다.</p></article>
+ <article class="feature"><h2>첫 상담 전 방향 확인</h2><div class="feature-tiles"><span></span><span></span><span></span><span></span></div><p>나에게 필요한 코칭 방향을 먼저 확인할 수 있습니다.</p></article>
 </section>
-
-<section class="rvs"><div class="in"><h2 class="ttl">코치를 고를 때 이런 고민, 해 보셨죠</h2>
-  <div class="row"><div class="c"><b><i></i>사회인 야구 3년차</b><p>경력과 수상 이력만 보고 골랐는데 나와 안 맞았을 때</p></div><div class="c"><b><i></i>고교 야구부</b><p>내 스윙의 어디가 문제인지 아무도 정확히 말해 주지 않을 때</p></div><div class="c"><b><i></i>입문 6개월</b><p>레슨비는 나가는데 달라진 게 없다고 느낄 때</p></div></div></div></section>
-
-<section class="in how"><h2 class="ttl" style="text-align:left">내 문제를 아는 코치를 찾는 방법</h2>
-  <div class="row"><a href="#apply"><div class="pic">1</div><h3>플레이 영상 분석</h3><p>스윙·투구 영상을 올리면 고치고 싶은 포인트를 먼저 정리합니다.</p><u>사전 가입 →</u></a><a href="#apply"><div class="pic">2</div><h3>문제 기반 추천</h3><p>경력 순이 아니라 내 문제를 잘 다루는 코치 순으로 추천합니다.</p><u>사전 가입 →</u></a><a href="#apply"><div class="pic">3</div><h3>첫 레슨 전 상담</h3><p>레슨 전 짧은 상담으로 방향이 맞는지 먼저 확인합니다.</p><u>사전 가입 →</u></a></div>
-</section>
-
+<section class="in concerns"><h2>이런 고민에 많이 찾아요</h2><div class="concern-grid"><div class="concern">자세 교정이 필요해요</div><div class="concern">실력이 잘 늘지 않아요</div><div class="concern">부상 없이 운동하고 싶어요</div><div class="concern">혼자 운동하기가 막막해요</div><div class="concern">대회나 시즌을 준비하고 있어요</div><div class="concern">기본기부터 다시 배우고 싶어요</div></div></section>
+<section class="dark"><div class="in"><h2>내 문제를 아는 코치와<br>다음 시즌을 준비하세요</h2><a href="#apply">무료 피드백 신청</a></div></section>
+<section class="in easy" id="how"><h2>3단계로 코치 찾기</h2><div class="row">
+ <article class="step"><div class="ic" aria-hidden="true">🎥</div><h3>영상과 목표 입력</h3><p>플레이 영상과 운동 목표를 준비해 주세요.</p></article>
+ <article class="step"><div class="ic" aria-hidden="true">👥</div><h3>맞춤 코치 추천</h3><p>내 고민에 맞는 코치 추천을 받아보세요.</p></article>
+ <article class="step"><div class="ic" aria-hidden="true">💬</div><h3>피드백 확인</h3><p>코치가 영상을 확인하고 개인별 피드백을 안내합니다.</p></article>
+ </div><a class="more" href="#apply">이용 방법 보기</a></section>
+<section class="rvs"><div class="in"><h2>코치를 고를 때 이런 고민, 해 보셨죠</h2><div class="row">
+ <article class="c"><b><i>?</i>어떤 코치가 맞을까요?</b><p>내 문제를 제대로 이해하는 코치를 찾기 어려워요.</p></article>
+ <article class="c"><b><i>●</i>코치와 잘 맞을까요?</b><p>상담을 통해 나와 잘 맞는지 확인하고 싶어요.</p></article>
+ <article class="c"><b><i>✓</i>레슨이 효과가 있을까요?</b><p>내 목표에 맞는 구체적인 피드백을 받고 싶어요.</p></article>
+ </div></div></section>
 <section class="ent" id="apply"><div class="in">
-  <div><h2>사전 가입 신청</h2><ul><li>정보·영상 올리기 — 포지션, 목표, 플레이 영상을 올립니다.</li><li>코치 추천 — 내 문제에 맞는 코치 3명을 추천받습니다.</li><li>상담 후 레슨 — 상담으로 확인한 뒤 레슨을 시작합니다.</li></ul>
-    <dl><dt>야구 말고 다른 종목도 되나요?</dt><dd>처음에는 야구로 시작하고, 축구·러닝·테니스로 넓힐 계획입니다.</dd><dt>사전 가입하면 무엇을 받나요?</dt><dd><span class="todo">사전 가입 혜택 정하기</span></dd></dl></div>
-  <form id="lead-form" action="result.html" method="get" autocomplete="off" novalidate>
-    <p style="font-size:20px;font-weight:700;margin:0 0 4px">사전 가입 신청</p><p style="color:var(--sub);margin:0 0 16px">오픈하면 가장 먼저 코치 추천을 받아 보세요.</p>
-    <label class="field"><span>이름</span><input id="f-name" type="text" required maxlength="20" placeholder="홍길동"></label>
-<label class="field"><span>연락처</span><input id="f-contact" type="tel" required pattern="[0-9\- ]{9,14}" placeholder="010-0000-0000"></label>
-<label class="field"><span>포지션</span><select id="f-select" required><option value="">선택해 주세요</option><option>투수</option><option>타자</option><option>포수</option><option>내야수</option><option>외야수</option></select></label>
-
-    <div class="safe-note"><span aria-hidden="true">🔒</span><div>입력한 정보는 <b>어디에도 전송·저장되지 않고</b> 완료 즉시 지워집니다. <button type="button" data-privacy-open>자세히 보기</button></div></div>
-    <button class="submit" type="submit" id="cta-submit">사전 가입 신청</button>
-  </form>
+ <div class="pitch"><h2>지금 신청하고<br>무료 피드백 받기</h2><p>코치가 플레이 영상을 확인하고,<br>내 운동 목표에 맞춘 개인별 피드백을 보내드려요.</p><p class="note">현재 사전 수요 조사 중이며,<br>레슨 예약이나 결제는 진행되지 않습니다.</p></div>
+ <form id="lead-form" action="result.html" method="get" autocomplete="off" novalidate>
+  <p class="form-title">무료 피드백 신청</p><p class="form-sub">신청 정보를 입력해 주세요.</p>
+  <label class="field"><span>이름</span><input id="f-name" type="text" required maxlength="20" placeholder="홍길동"></label>
+  <label class="field"><span>연락처</span><input id="f-contact" type="tel" required pattern="[0-9\- ]{9,14}" placeholder="010-0000-0000"></label>
+  <label class="field"><span>종목</span><select id="f-select" required><option value="">종목을 선택해 주세요</option><option>러닝</option><option>야구</option><option>축구</option><option>테니스</option><option>골프</option><option>헬스</option><option>배구</option><option>배드민턴</option><option>기타</option></select></label>
+  <div class="safe-note"><span aria-hidden="true">🔒</span><div>입력한 정보는 어디에도 전송·저장되지 않으며 완료 후 즉시 지워집니다. <button type="button" data-privacy-open>자세히 보기</button></div></div>
+  <button class="submit" type="submit" id="cta-submit">무료 피드백 신청</button>
+ </form>
 </div></section>
 </main>
-
 <footer class="ft"><div class="in">
-  <div><b>PLAYCOACH</b>이 페이지는 수업 실습용 페이지입니다. 실제 판매·결제는 이루어지지 않으며, 표기된 수치·후기는 예시입니다.</div>
-  <div><b>PLAYCOACH 소개</b><a href="#how">추천 방식</a></div>
-  <div><b>회원 안내</b><a href="#apply">사전 가입 신청</a></div>
-  <div><b>고객 지원</b><a href="#" data-privacy-open>개인정보 처리 안내</a></div>
+ <div><b>PLAYCOACH</b>이 페이지는 서비스 수요 조사를 위한 시안입니다. 신청 정보는 저장되지 않으며, 실제 피드백 신청은 접수되지 않습니다.</div>
+ <div><b>PLAYCOACH 소개</b><a href="#how">이용 방법</a></div><div><b>회원 안내</b><a href="#apply">무료 피드백 신청</a></div><div><b>고객 지원</b><a href="#" data-privacy-open>개인정보 안내</a></div>
 </div></footer>
 <div class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" aria-hidden="true">
-  <div class="modal-box">
-    <span class="badge">개인정보 미수집 · 즉시 파기</span>
-    <h2 id="privacy-title">개인정보 처리 안내</h2>
-    <ol>
-      <li><strong>입력하신 정보는 절대 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li>
-      <li>입력값은 이 브라우저 화면에만 잠시 머물며, 완료 버튼을 누르는 <strong>즉시 화면에서 지워집니다.</strong> 쿠키나 브라우저 저장소에도 남기지 않습니다.</li>
-      <li>페이지 제작자와 강사를 포함한 <strong>누구도 입력값을 볼 수 없습니다.</strong></li>
-    </ol>
-    <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며, 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
-    <div class="modal-actions">
-      <button type="button" class="cancel" id="privacy-cancel">닫기</button>
-      <button type="button" class="ok" id="privacy-ok" disabled>확인했습니다</button>
-    </div>
-  </div>
-</div><script src="assets/privacy.js"></script>
+ <div class="modal-box"><span class="badge">개인정보 미수집 · 즉시 파기</span><h2 id="privacy-title">개인정보 처리 안내</h2>
+  <ol><li><strong>입력하신 정보는 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li><li>입력값은 이 브라우저 화면에만 잠시 머물며 완료 버튼을 누르면 화면에서 지워집니다. 쿠키나 브라우저 저장소에도 남기지 않습니다.</li><li>페이지 제작자와 강사를 포함한 누구도 입력값을 볼 수 없습니다.</li></ol>
+  <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
+  <div class="modal-actions"><button type="button" class="cancel" id="privacy-cancel">닫기</button><button type="button" class="ok" id="privacy-ok" disabled>확인했습니다</button></div>
+ </div>
+</div>
+<script src="assets/privacy.js"></script>
 </body>
 </html>
