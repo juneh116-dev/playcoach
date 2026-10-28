@@ -112,19 +112,19 @@
   <label class="field"><span>이름</span><input id="f-name" type="text" required maxlength="20" placeholder="홍길동"></label>
   <label class="field"><span>연락처</span><input id="f-contact" type="tel" required pattern="[0-9\- ]{9,14}" placeholder="010-0000-0000"></label>
   <label class="field"><span>종목</span><select id="f-select" required><option value="">종목을 선택해 주세요</option><option>러닝</option><option>야구</option><option>축구</option><option>테니스</option><option>골프</option><option>헬스</option><option>배구</option><option>배드민턴</option><option>기타</option></select></label>
-  <div class="safe-note"><span aria-hidden="true">🔒</span><div>입력한 정보는 어디에도 전송·저장되지 않으며 완료 후 즉시 지워집니다. <button type="button" data-privacy-open>자세히 보기</button></div></div>
+  <div class="safe-note"><span aria-hidden="true">🔒</span><div>이름·연락처는 전송·저장하지 않고 완료 후 지웁니다. 선택 종목과 이용 행동은 통계로 수집합니다. <button type="button" data-privacy-open>자세히 보기</button></div></div>
   <button class="submit" type="submit" id="cta-submit">무료 피드백 신청</button>
  </form>
 </div></section>
 </main>
 <footer class="ft"><div class="in">
- <div><b>PLAYCOACH</b>이 페이지는 서비스 수요 조사를 위한 시안입니다. 신청 정보는 저장되지 않으며, 실제 피드백 신청은 접수되지 않습니다. 사이트 이용 현황은 Google Analytics 4로 분석하며 쿠키 등이 사용될 수 있습니다.</div>
+ <div><b>PLAYCOACH</b>이 페이지는 서비스 수요 조사를 위한 시안입니다. 이름·연락처는 저장하지 않으며 실제 피드백 신청은 접수되지 않습니다. 선택 종목과 사이트 이용 행동은 Google Analytics 4로 분석하며 쿠키 등이 사용될 수 있습니다.</div>
  <div><b>PLAYCOACH 소개</b><a href="#how">이용 방법</a></div><div><b>회원 안내</b><a href="#apply">무료 피드백 신청</a></div><div><b>고객 지원</b><a href="#" data-privacy-open>개인정보 안내</a></div>
 </div></footer>
 <dialog class="modal" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
  <div class="modal-box"><span class="badge">개인정보 미수집 · 즉시 파기</span><h2 id="privacy-title">개인정보 처리 안내</h2>
-  <ol><li><strong>입력하신 정보는 저장하지 않습니다.</strong> 서버, 데이터베이스, 스프레드시트, 이메일, 외부 서비스 어디로도 전송되지 않습니다.</li><li>입력값은 이 브라우저 화면에만 잠시 머물며 완료 버튼을 누르면 화면에서 지워집니다. 입력한 이름·연락처·종목은 쿠키나 브라우저 저장소에도 남기지 않습니다.</li><li>페이지 제작자와 강사를 포함한 누구도 입력값을 볼 수 없습니다.</li><li><strong>사이트 이용 분석</strong>: Google Analytics 4를 사용해 페이지 조회, 스크롤 등 이용 현황을 분석합니다. 이 과정에서 브라우저·기기 정보와 쿠키 등의 분석 데이터가 Google에 전송·처리될 수 있습니다. 폼에 입력한 이름·연락처 등 입력값은 분석 이벤트로 전송하지 않습니다. 아래 확인란은 이 폼의 입력값 처리 안내 확인용입니다.</li></ol>
-  <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며 입력값이 저장되지 않고 즉시 파기된다는 점에 동의합니다.</label>
+  <ol><li><strong>입력하신 이름·연락처는 수집하지 않습니다.</strong> 신청 접수 서버, 데이터베이스, 이메일, Google Analytics 등으로 전송하지 않습니다.</li><li>이름·연락처는 이 브라우저 화면에만 잠시 머물며 완료 버튼을 누르면 지워집니다. 쿠키나 브라우저 저장소에도 남기지 않습니다.</li><li><strong>사이트 이용 분석</strong>: Google Analytics 4로 페이지 조회, 스크롤, 버튼 클릭, 신청 단계와 선택 종목을 분석합니다. 브라우저·기기 정보와 쿠키 등의 분석 데이터가 Google에 전송·처리될 수 있습니다. 이름·연락처는 분석 이벤트에 포함하지 않습니다.</li><li>신청 의향 완료는 통계로만 기록되며 실제 피드백 신청은 접수되지 않습니다. 아래 확인란은 이 폼의 이름·연락처 처리 안내 확인용이며 분석 쿠키 동의를 대신하지 않습니다.</li></ol>
+  <label><input type="checkbox" id="privacy-agree"> 위 내용을 확인했으며 이름·연락처가 저장되지 않고 완료 후 즉시 지워진다는 점에 동의합니다.</label>
   <div class="modal-actions"><button type="button" class="cancel" id="privacy-cancel">닫기</button><button type="button" class="ok" id="privacy-ok" disabled>확인했습니다</button></div>
  </div>
 </dialog>
@@ -132,6 +132,7 @@
  <button type="button" class="apply-close" aria-label="신청 창 닫기">×</button>
  <div id="apply-form-slot"></div>
 </dialog>
-<script src="assets/privacy.js"></script>
+<script src="assets/analytics.js?v=behavior-1"></script>
+<script src="assets/privacy.js?v=behavior-1"></script>
 </body>
 </html>
