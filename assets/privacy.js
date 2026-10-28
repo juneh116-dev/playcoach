@@ -16,6 +16,12 @@
   var formHome = form && form.parentNode;
   var formNext = form && form.nextSibling;
   var applicationTrigger;
+  var analytics = window.playcoachAnalytics;
+  var applicationCloseMethod = 'unknown';
+  var privacyCloseMethod = 'unknown';
+  function track(name, params) {
+    if (analytics) analytics.emit(name, Object.assign(analytics.context(), params || {}));
+  }
 
   if (application && form) {
     // 홈페이지의 링크와 버튼은 기본적으로 동일한 신청 팝업을 엽니다.
@@ -34,15 +40,21 @@
       e.preventDefault();
       applicationTrigger = trigger;
       document.getElementById('apply-form-slot').appendChild(form);
-      if (!application.open) application.showModal();
+      if (!application.open) {
+        application.showModal();
+        applicationCloseMethod = 'unknown';
+        if (analytics) analytics.openApplication(trigger);
+      }
       document.getElementById('f-name').focus();
     });
-    application.querySelector('.apply-close').addEventListener('click', function () { application.close(); });
+    application.querySelector('.apply-close').addEventListener('click', function () { applicationCloseMethod = 'button'; application.close(); });
+    application.addEventListener('cancel', function () { applicationCloseMethod = 'escape'; });
     application.addEventListener('click', function (e) {
       var box = application.getBoundingClientRect();
-      if (e.target === application && (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom)) application.close();
+      if (e.target === application && (e.clientX < box.left || e.clientX > box.right || e.clientY < box.top || e.clientY > box.bottom)) { applicationCloseMethod = 'backdrop'; application.close(); }
     });
     application.addEventListener('close', function () {
+      if (analytics) analytics.closeApplication(applicationCloseMethod);
       formHome.insertBefore(form, formNext);
       if (applicationTrigger) applicationTrigger.focus({ preventScroll: true });
     });
@@ -64,24 +76,32 @@
     ok.textContent = m === 'submit' ? '동의하고 완료하기' : '확인했습니다';
     modal.classList.add('open');
     modal.showModal();
+    privacyCloseMethod = 'unknown';
+    track('privacy_notice_open', {mode:mode});
     agree.focus();
   }
 
-  function close() {
+  function close(method) {
+    privacyCloseMethod = method;
     modal.classList.remove('open');
     modal.close();
   }
 
-  agree.addEventListener('change', function () { ok.disabled = !agree.checked; });
-  cancel.addEventListener('click', close);
-  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-  modal.addEventListener('close', function () { modal.classList.remove('open'); });
+  agree.addEventListener('change', function () { ok.disabled = !agree.checked; track('privacy_acknowledgement_change', {mode:mode,checked:agree.checked}); });
+  cancel.addEventListener('click', function () { close('button'); });
+  modal.addEventListener('cancel', function () { privacyCloseMethod = 'escape'; });
+  modal.addEventListener('click', function (e) { if (e.target === modal) close('backdrop'); });
+  modal.addEventListener('close', function () { modal.classList.remove('open'); track('privacy_notice_close', {mode:mode,close_method:privacyCloseMethod}); });
 
   ok.addEventListener('click', function () {
-    if (mode !== 'submit') { close(); return; }
+    if (!agree.checked) return;
+    if (mode !== 'submit') { track('privacy_notice_acknowledge', {mode:mode}); close('acknowledge'); return; }
+    var snapshot = analytics && Object.assign(analytics.context(), {sport:analytics.sport()});
     wipe();
-    // 이 데모는 연락처를 저장하지 않으므로 실제 리드 전환 이벤트를 보내지 않습니다.
-    location.replace('result.html');
+    // 완료는 데모 신청 의향이며 실제 접수(generate_lead)가 아닙니다.
+    function navigate() { location.replace('result.html'); }
+    if (analytics) analytics.complete(snapshot, navigate);
+    else navigate();
   });
 
   document.querySelectorAll('[data-privacy-open]').forEach(function (b) {
@@ -95,7 +115,17 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+      track('application_submit_attempt');
+      if (!form.checkValidity()) {
+        var invalid = form.querySelector(':invalid');
+        if (invalid) {
+          var fieldNames = {'f-name':'name','f-contact':'contact','f-select':'sport'};
+          var errorType = invalid.validity.valueMissing ? 'required' : invalid.validity.tooLong ? 'too_long' : 'format';
+          track('form_validation_error', {field_name:fieldNames[invalid.id] || 'unknown',error_type:errorType});
+        }
+        form.reportValidity();
+        return;
+      }
       open('submit');
     });
   }
