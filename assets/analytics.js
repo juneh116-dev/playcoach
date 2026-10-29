@@ -10,6 +10,24 @@
   var allowedEvents = ['ui_click','section_view','content_view','application_open','application_close','application_start','sport_select','application_submit_attempt','form_validation_error','privacy_notice_open','privacy_notice_close','privacy_acknowledgement_change','privacy_notice_acknowledge','application_intent_complete','result_view'];
   var allowedParams = ['ui_location','element_id','action','intended_action','interest_sport','content_type','content_id','section_id','form_id','entry_point','form_placement','sport','field_name','error_type','mode','checked','close_method','form_started'];
   var targets = new WeakMap();
+  function sendMetaEvent(name, params) {
+    // Exclude page views, scroll events, and scroll-driven visibility events.
+    if (name === 'page_view' || /scroll/i.test(name) || name === 'section_view' || name === 'content_view') return;
+    var metaEvents = {
+      generate_lead: 'Lead', sign_up: 'CompleteRegistration', contact_click: 'Contact',
+      view_item: 'ViewContent', add_to_cart: 'AddToCart', begin_checkout: 'InitiateCheckout',
+      purchase: 'Purchase', search: 'Search'
+    };
+    try {
+      if (name === 'purchase') {
+        if (window.fbq) fbq('track', 'Purchase', { value: params && params.value, currency: 'KRW' });
+      } else if (Object.prototype.hasOwnProperty.call(metaEvents, name)) {
+        if (window.fbq) fbq('track', metaEvents[name]);
+      } else {
+        if (window.fbq) fbq('trackCustom', name);
+      }
+    } catch (e) { /* Pixel errors must not affect GA4 callbacks or navigation. */ }
+  }
   function emit(name, params, callback) {
     if (allowedEvents.indexOf(name) < 0) return;
     var payload = { app_mode: 'demo', page_type: pageType, send_to: 'G-8981HN9P16' };
@@ -22,7 +40,10 @@
       payload.transport_type = 'beacon';
     }
     try {
-      if (typeof window.gtag === 'function') window.gtag('event', name, payload);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', name, payload);
+        sendMetaEvent(name, params);
+      }
       else if (callback) callback();
     } catch (e) { if (callback) callback(); }
   }
