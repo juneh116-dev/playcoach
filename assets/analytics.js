@@ -101,6 +101,7 @@
       var navigated = false;
       function finish() { if (!navigated) { navigated = true; navigate(); } }
       window.setTimeout(finish, 900);
+      if (window.sendLeadLog) window.sendLeadLog();
       emit('application_intent_complete', snapshot, finish);
     }
   };
