@@ -101,7 +101,10 @@
     // 완료는 데모 신청 의향이며 실제 접수(generate_lead)가 아닙니다.
     function navigate() { location.replace('result.html'); }
     if (analytics) analytics.complete(snapshot, navigate);
-    else navigate();
+    else {
+      if (window.sendLeadLog) window.sendLeadLog();
+      navigate();
+    }
   });
 
   document.querySelectorAll('[data-privacy-open]').forEach(function (b) {
