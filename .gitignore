@@ -1,0 +1,8 @@
+platform/node_modules/
+platform/.next/
+platform/.env*
+!platform/.env.example
+platform/test-results/
+platform/playwright-report/
+platform/tsconfig.tsbuildinfo
+platform/.vercel/
