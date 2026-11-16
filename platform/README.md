@@ -1,5 +1,7 @@
 # PLAYCOACH 독립 서비스 앱
 
+공개 앱: https://playcoach-opal.vercel.app — Supabase 서울 DB와 Vercel 서울 앱 서버에 배포되어 있습니다. 이메일 가입·로그인·로그아웃 및 호스팅 로그인 없는 공개 접근을 운영 주소에서 검증했습니다.
+
 Next.js / TypeScript / PostgreSQL 기반 서비스입니다. 저장소 루트의 GitHub Pages 랜딩페이지와 별도로 `platform/`을 Vercel에 배포합니다. Higgsfield 인증이나 SDK에 의존하지 않습니다.
 
 ## 시작하기
@@ -21,7 +23,7 @@ npm run dev
 - 회원가입 후 이메일로 로그인합니다. 세션은 HttpOnly 쿠키와 DB의 해시된 토큰을 사용하며 7일간 유지됩니다.
 - 네이버·카카오 로그인은 선택 기능입니다. 운영 DB와 해당 제공자의 키가 모두 설정된 경우만 활성화됩니다. 이메일 가입에 소셜 키는 필요하지 않습니다.
 - 같은 이메일이라는 이유로 자체 계정과 소셜 계정을 자동 병합하지 않습니다.
-- 현재 화면과 API는 `/api/platform/*`, DB는 `002-platform.sql`과 `003-local-auth.sql`을 사용합니다. 이전 NextAuth 경로와 `001-initial.sql`은 레거시이며 새 배포 설정에 사용하지 않습니다.
+- 현재 화면과 API는 `/api/platform/*`, DB는 `002-platform.sql`·`003-local-auth.sql`·`004-private-platform.sql`을 사용합니다. 이전 NextAuth 경로와 `001-initial.sql`은 레거시이며 새 배포 설정에 사용하지 않습니다.
 
 ## 데이터베이스와 배포
 
@@ -31,7 +33,7 @@ npm run dev
 npm run db:migrate
 ```
 
-위 명령은 독립 앱의 두 마이그레이션을 순서대로 적용하며 기존 레거시 테이블을 삭제하지 않습니다. 상세 Vercel 설정과 OAuth 콜백은 [DEPLOYMENT.md](DEPLOYMENT.md)를 확인하세요.
+위 명령은 독립 앱의 세 마이그레이션을 순서대로 적용하며 기존 레거시 테이블을 삭제하지 않습니다. Supabase 브라우저 역할은 RLS와 권한 회수로 차단하고 서버의 PostgreSQL 소유자 연결만 사용합니다. Vercel은 `npm run build:vercel`로 DB 마이그레이션 성공 후 앱을 빌드합니다. 상세 Vercel 설정과 OAuth 콜백은 [DEPLOYMENT.md](DEPLOYMENT.md)를 확인하세요.
 
 ## 구현 범위
 
