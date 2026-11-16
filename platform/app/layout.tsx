@@ -1,0 +1,1 @@
+import type {Metadata} from 'next';import './globals.css';export const metadata:Metadata={title:'PLAYCOACH | 피드백 먼저, 레슨은 그다음',description:'우리 동네 코치에게 무료 피드백을 받고 레슨을 선택하세요.',robots:{index:false,follow:false}};export default function Layout({children}:{children:React.ReactNode}){return <html lang="ko"><body className="playcoach-body">{children}</body></html>;}
