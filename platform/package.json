@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start --hostname 0.0.0.0",
     "typecheck": "tsc --noEmit",
-    "test": "playwright test"
+    "test": "playwright test",
+    "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
+    "check:public": "node scripts/check-public.mjs"
   },
   "keywords": [],
   "author": "",
